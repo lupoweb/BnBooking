@@ -16,7 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'toastr-rails', '~> 1.0'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
-
+gem 'paperclip', '~> 5.1.0'
+gem 'aws-sdk'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

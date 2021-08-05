@@ -83,4 +83,26 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    enable_starttls_auto: true,
+    authentication: 'plain',
+    user_name: ENV['GMAIL_ACCOUNT'],
+    password: ENV['GMAIL_PASSWORD']
+  }
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: 'class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-eu-central-1.amazonaws.com',
+    s3_credentials: {
+      bucket: ENV['S3_NAME_BUCKET'],
+      access_key_id: ENV['S3_ACCESS_KEY'],
+      secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
+      s3_region: 'eu-central-1'
+    }
+  }
 end

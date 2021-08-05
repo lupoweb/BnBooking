@@ -1,3 +1,4 @@
+require 'aws-sdk'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -59,7 +60,20 @@ Rails.application.configure do
     port: 587,
     enable_starttls_auto: true,
     authentication: 'plain',
-    user_name: 'fr.lupano@gmail.com',
-    password: 'Allianz14!'
+    user_name: ENV['GMAIL_ACCOUNT'],
+    password: ENV['GMAIL_PASSWORD']
+  }
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: 'class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-eu-central-1.amazonaws.com',
+    s3_credentials: {
+      bucket: ENV['S3_NAME_BUCKET'],
+      access_key_id: ENV['S3_ACCESS_KEY'],
+      secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
+      s3_region: 'eu-central-1'
+    }
   }
 end
+

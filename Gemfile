@@ -18,6 +18,7 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.8'
 gem 'figaro'
+gem 'geocoder', '~> 1.4'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
